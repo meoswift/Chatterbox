@@ -1,14 +1,22 @@
 package com.example.chatterbox;
 
 import android.app.Application;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.parse.LogInCallback;
 import com.parse.Parse;
+import com.parse.ParseAnonymousUtils;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 //  Purpose: Set up connection to Parse backend server
 public class ChatApplication extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -27,4 +35,5 @@ public class ChatApplication extends Application {
                 .clientBuilder(builder)
                 .server("https://codepath-chat-lab.herokuapp.com/parse/").build());
     }
+
 }
