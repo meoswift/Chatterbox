@@ -7,6 +7,7 @@ import com.parse.Parse;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
+//  Purpose: Set up connection to Parse backend server
 public class ChatApplication extends Application {
     @Override
     public void onCreate() {
