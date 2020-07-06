@@ -9,6 +9,7 @@ import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseAnonymousUtils;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import okhttp3.OkHttpClient;
@@ -20,6 +21,9 @@ public class ChatApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        // Register message class as part of Application
+        ParseObject.registerSubclass(Message.class);
 
         // Use for monitoring Parse network traffic
         OkHttpClient.Builder builder = new OkHttpClient.Builder();

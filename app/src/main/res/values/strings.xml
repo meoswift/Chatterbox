@@ -2,4 +2,6 @@
     <string name="app_name">Chatterbox</string>
     <string name="message_hint">Say something</string>
     <string name="send">Send</string>
+    <string name="profile_other">My Profile Pic</string>
+    <string name="profile_me">Other profile pic</string>
 </resources>

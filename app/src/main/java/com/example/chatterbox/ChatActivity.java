@@ -68,16 +68,16 @@ public class ChatActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // get the message that user writes
                 String data = mMessage.getText().toString();
-                // create a parse object by class name "Message"
-                ParseObject message = ParseObject.create("Message");
-                // stores the data and user id with the object
-                message.put(BODY_KEY, data);
-                message.put(USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
+                // Create a Parse-backed Message model
+                Message message = new Message();
+                // Set body and user ID to message Parse object
+                message.setBody(data);
+                message.setUserId(ParseUser.getCurrentUser().getObjectId());
                 // save properties of this object to Parse database
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if (e == null)
+                        if (e == null) // no exception thrown, message is created on Parse
                             Toast.makeText(ChatActivity.this,
                                     "Successfully created message on Parse!",
                                     Toast.LENGTH_SHORT).show();
@@ -87,6 +87,7 @@ public class ChatActivity extends AppCompatActivity {
                 });
             }
         });
+        mMessage.setText(null); // clears the EditText message box
     }
 
 }
